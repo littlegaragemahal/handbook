@@ -121,17 +121,18 @@
   .tabbar::-webkit-scrollbar{display:none;}
   .tabbar-inner{
     display:flex;
+    justify-content:space-between;
     max-width:720px;margin:0 auto;
-    padding:0 12px;
+    padding:0 10px;
   }
   .tab-btn{
-    flex:0 0 auto;
+    flex:1 1 auto;
     background:none;border:none;
     font-family:'Fraunces',serif;
     font-weight:600;
     font-size:.92rem;
     color:var(--charcoal-soft);
-    padding:14px 14px 11px;
+    padding:14px 10px 11px;
     cursor:pointer;
     border-bottom:3px solid transparent;
     white-space:nowrap;
@@ -141,6 +142,10 @@
     border-bottom-color:var(--gold);
   }
   .tab-btn:hover{color:var(--charcoal);}
+  @media (max-width:400px){
+    .tabbar-inner{padding:0 4px;}
+    .tab-btn{font-size:.78rem;padding:12px 4px 9px;}
+  }
 
   .page{display:none;}
   .page.active{display:block;}
@@ -341,8 +346,8 @@
   <div class="tabbar-inner">
     <button class="tab-btn active" data-page="home">Home</button>
     <button class="tab-btn" data-page="arrival">Arrival</button>
-    <button class="tab-btn" data-page="neighborhood">Neighborhood</button>
-    <button class="tab-btn" data-page="house-guide">House Guide</button>
+    <button class="tab-btn" data-page="neighborhood">Nearby</button>
+    <button class="tab-btn" data-page="house-guide">House</button>
     <button class="tab-btn" data-page="checkout">Checkout</button>
   </div>
 </nav>
