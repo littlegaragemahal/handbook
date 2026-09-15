@@ -62,7 +62,7 @@
   .hero img{width:100%;height:30vh;min-height:180px;object-fit:cover;display:block;}
   .hero-shade{
     position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(20,20,18,0) 40%, rgba(20,20,18,.82) 100%);
+    background:linear-gradient(180deg, rgba(20,20,18,0) 20%, rgba(20,20,18,.9) 100%);
   }
   .hero-text{
     position:absolute;left:0;right:0;bottom:0;
@@ -74,14 +74,17 @@
     font-size:.8rem;
     letter-spacing:.03em;
     margin-bottom:2px;
+    font-weight:700;
+    text-shadow: 0 1px 3px rgba(0,0,0,.85), 0 2px 10px rgba(0,0,0,.6);
   }
   .hero-text h1{
     color:#fff;
     font-size:1.7rem;
     line-height:1.05;
     margin-bottom:4px;
+    text-shadow: 0 1px 4px rgba(0,0,0,.7), 0 2px 14px rgba(0,0,0,.5);
   }
-  .hero-text .addr{font-size:.9rem;color:#e9e3d3;}
+  .hero-text .addr{font-size:.9rem;color:#e9e3d3;text-shadow: 0 1px 3px rgba(0,0,0,.7);}
 
   /* QUICK INFO BAR */
   .quickbar{
@@ -116,11 +119,9 @@
     margin-bottom:3px;
     display:flex;align-items:center;gap:5px;
   }
-  .qitem.wifi-item .label{font-size:.74rem;}
   .qitem .val{font-size:.92rem;font-weight:500;}
-  .qitem.wifi-item .val{font-size:1rem;font-weight:600;}
   .qitem .val small{display:block;font-weight:400;opacity:.85;font-size:.82rem;}
-  .qitem.wifi-item .val small{font-weight:600;opacity:1;font-size:.9rem;letter-spacing:.02em;}
+  .qitem.wifi-item .val small{opacity:1;letter-spacing:.02em;}
   .wifi-copy{
     cursor:pointer;
     border-bottom:1px dotted rgba(242,234,214,.5);
@@ -364,10 +365,6 @@
 
 <div class="quickbar">
   <div class="wrap">
-    <div class="qitem">
-      <div class="label">Checkout</div>
-      <div class="val">11:00 AM</div>
-    </div>
     <div class="qitem wifi-item">
       <div class="label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12.5a11 11 0 0 1 14 0"/><path d="M8.5 16a6.5 6.5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1.2" fill="currentColor" stroke="none"/></svg> Wifi</div>
       <div class="val">
@@ -378,6 +375,10 @@
     <div class="qitem">
       <div class="label">Contact</div>
       <div class="val">Via <a href="https://www.airbnb.com/" target="_blank" rel="noopener" style="color:inherit;">Airbnb app</a><small>Urgent? Text/call <a href="tel:+16159694148" style="color:inherit;">615.969.4148</a><br>(esp. 9pm&ndash;6am)</small></div>
+    </div>
+    <div class="qitem">
+      <div class="label">Checkout</div>
+      <div class="val">11:00 AM</div>
     </div>
   </div>
 </div>
