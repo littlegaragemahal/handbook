@@ -692,7 +692,7 @@
   });
 
   // ---- Address links: open in the default maps app (Apple Maps on iOS, Google Maps elsewhere) ----
-  var isAppleDevice = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  var isAppleDevice = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
   document.querySelectorAll('.addr-link').forEach(function(el){
     var addr = el.getAttribute('data-addr');
     var url = isAppleDevice
