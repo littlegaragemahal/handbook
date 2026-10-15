@@ -433,7 +433,7 @@
     <div class="kicker">Guest Guide</div>
     <h1>Little Garage Mahal</h1>
     <div class="hero-bottom-row">
-      <div class="addr"><a class="addr-link" data-addr="1201 B Boscobel St., Nashville, TN 37206" href="#" target="_blank" rel="noopener">1201 B Boscobel St., Nashville, TN 37206</a></div>
+      <div class="addr"><a class="addr-link" data-addr="1201 B Boscobel St., Nashville, TN 37206" data-coords="36.17269,-86.74902" href="#" target="_blank" rel="noopener">1201 B Boscobel St., Nashville, TN 37206</a></div>
       <a class="hero-wx" href="#weather" id="heroWxLink" title="See full weather">
         <div class="hero-wx-kicker">East Nashville</div>
         <div id="heroWx">&hellip;</div>
@@ -512,7 +512,7 @@
   <div class="page" id="page-arrival">
     <section>
       <h2>Getting There</h2>
-      <p class="lede">The technical address is <a class="addr-link" data-addr="1201 B Boscobel St., Nashville, TN 37206" href="#" target="_blank" rel="noopener">1201 B Boscobel St., Nashville, TN 37206</a> — but you'll actually arrive from the alley behind the house.</p>
+      <p class="lede">The technical address is <a class="addr-link" data-addr="1201 B Boscobel St., Nashville, TN 37206" data-coords="36.17269,-86.74902" href="#" target="_blank" rel="noopener">1201 B Boscobel St., Nashville, TN 37206</a> — but you'll actually arrive from the alley behind the house.</p>
       <p><strong>You will access the building from the alley behind our residence.</strong> Enter the alley off S. 11th Street, between Boscobel Street and Lillian Street — it dead-ends just beyond our property, so it isn't a thruway. You can't reach the alley from 14th St., the next cross street over.</p>
       <div class="callout"><strong>GPS tip:</strong> the alley doesn't show up on some map apps. The easiest way to find it is to navigate to <strong><a class="addr-link" data-addr="315 S. 11th St., Nashville, TN 37206" href="#" target="_blank" rel="noopener">315 S. 11th St., Nashville, TN 37206</a></strong> — the alley entrance is just to the left of that address. We're the last garage on the right side, right before the alley dead-ends.</div>
       <p>The alley is quiet and well lit near our place.</p>
@@ -738,9 +738,17 @@
   var isAppleDevice = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
   document.querySelectorAll('.addr-link').forEach(function(el){
     var addr = el.getAttribute('data-addr');
-    var url = isAppleDevice
-      ? 'https://maps.apple.com/?q=' + encodeURIComponent(addr)
-      : 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(addr);
+    var coords = el.getAttribute('data-coords'); // exact pin (e.g., the alley entrance) overrides the street address
+    var url;
+    if (coords) {
+      url = isAppleDevice
+        ? 'https://maps.apple.com/?ll=' + coords + '&q=' + encodeURIComponent('Little Garage Mahal')
+        : 'https://www.google.com/maps/search/?api=1&query=' + coords;
+    } else {
+      url = isAppleDevice
+        ? 'https://maps.apple.com/?q=' + encodeURIComponent(addr)
+        : 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(addr);
+    }
     el.setAttribute('href', url);
   });
 
