@@ -278,6 +278,26 @@
     text-decoration:none;
     cursor:pointer;
   }
+  .quicklink-card{
+    position:relative;
+    background:var(--dark);
+    border:0;
+    border-bottom:4px solid var(--gold);
+    border-radius:6px;
+    padding:14px 36px 12px 14px;
+    transition:transform .12s ease, filter .12s ease;
+  }
+  .quicklink-card::after{
+    content:"\203A";
+    position:absolute;right:14px;top:50%;
+    transform:translateY(-50%);
+    color:var(--gold);
+    font-size:1.8rem;font-weight:700;line-height:1;
+  }
+  .quicklink-card:hover{filter:brightness(1.12);}
+  .quicklink-card:active{transform:scale(.98);}
+  .quicklink-card .ql-title{color:#fff !important;}
+  .quicklink-card .ql-sub{color:#e4e5e7 !important;}
   .quicklink-card .ql-title{
     font-family:'Manrope',sans-serif;
     font-weight:600;
