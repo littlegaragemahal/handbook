@@ -136,14 +136,15 @@
     color:#fff;
   }
   .quickbar .wrap{
-    display:flex;flex-wrap:wrap;gap:0;
+    display:flex;flex-wrap:nowrap;gap:0;
     padding:0;
   }
   .qitem{
-    flex:1 1 33%;
-    min-width:150px;
-    padding:14px 18px;
+    flex:1 1 0;
+    min-width:0;
+    padding:12px 10px 12px 12px;
     border-right:1px solid rgba(255,255,255,.12);
+    overflow-wrap:anywhere;
   }
   .qitem:last-child{border-right:none;}
   .qitem.wifi-item{
@@ -157,10 +158,10 @@
     color:var(--gold);
     text-transform:uppercase;
     margin-bottom:3px;
-    display:flex;align-items:center;gap:5px;
+    display:flex;align-items:center;gap:4px;white-space:nowrap;
   }
-  .qitem .val{font-size:.92rem;font-weight:500;}
-  .qitem .val small{display:block;font-weight:400;opacity:.85;font-size:.82rem;}
+  .qitem .val{font-size:.88rem;font-weight:500;line-height:1.35;}
+  .qitem .val small{display:block;font-weight:400;opacity:.85;font-size:.78rem;}
   .qitem.wifi-item .val small{opacity:1;letter-spacing:.02em;}
   .wifi-copy{
     cursor:pointer;
@@ -220,6 +221,11 @@
     border-bottom-color:var(--gold);
   }
   .tab-btn:hover{color:var(--charcoal);}
+  @media (max-width:340px){
+    .qitem{padding:10px 8px;}
+    .qitem .val{font-size:.8rem;}
+    .qitem .val small{font-size:.72rem;}
+  }
   @media (max-width:400px){
     .tabbar-inner{padding:0 4px;}
     .tab-btn{font-size:.78rem;padding:12px 4px 9px;}
@@ -705,11 +711,11 @@
     <section>
       <h2>Before You Go</h2>
       <ul class="checklist">
-        <li>Strip the bed — dirty sheets and towels go in the laundry baskets in the closet.</li>
-        <li>Run the dishwasher if there are any dirty dishes.</li>
-        <li>Set the thermostat to 72 if the AC has been running, or 68 if the heat has been on.</li>
-        <li>Double check for belongings, and lock the door behind you.</li>
-        <li>Text <a href="tel:+16159694148">615.969.4148</a> or message us through the <a href="https://www.airbnb.com/" target="_blank" rel="noopener">Airbnb app</a> once you've checked out.</li>
+        <li><span>Strip the bed — dirty sheets and towels go in the laundry baskets in the closet.</span></li>
+        <li><span>Run the dishwasher if there are any dirty dishes.</span></li>
+        <li><span>Set the thermostat to 72 if the AC has been running, or 68 if the heat has been on.</span></li>
+        <li><span>Double check for belongings, and lock the door behind you.</span></li>
+        <li><span>Text <a href="tel:+16159694148">615.969.4148</a> or message us through the <a href="https://www.airbnb.com/" target="_blank" rel="noopener">Airbnb app</a> once you've checked out.</span></li>
       </ul>
     </section>
   </div>
