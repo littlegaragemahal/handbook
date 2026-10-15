@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#2b2b2b">
+<meta name="theme-color" content="#141516">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -26,17 +26,20 @@
 <meta name="twitter:title" content="Little Garage Mahal — Guest Guide">
 <meta name="twitter:image" content="https://REPLACE-WITH-YOUR-DOMAIN/share/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --charcoal:#2b2b2b;
-    --charcoal-soft:#454138;
-    --gold:#c99a2e;
-    --gold-deep:#9c7a1f;
-    --cream:#faf6ec;
-    --cream-2:#f2ead6;
+    --charcoal:#f1f1f1;
+    --charcoal-soft:#b4b6ba;
+    --gold:#f2b800;
+    --gold-deep:#f2b800;
+    --cream:#1f2022;
+    --cream-2:#2a2b2e;
     --green:#445e45;
-    --line:#e3d9bd;
+    --line:#3a3b3f;
+    --dark:#141516;
+    --card:#2a2b2e;
+    color-scheme:dark;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -44,16 +47,16 @@
     margin:0;
     background:var(--cream);
     color:var(--charcoal);
-    font-family:'Inter',sans-serif;
+    font-family:'Manrope',sans-serif;
     line-height:1.55;
   }
   h1,h2,h3{
-    font-family:'Fraunces',serif;
+    font-family:'Manrope',sans-serif;
     color:var(--charcoal);
     margin:0 0 .4em 0;
     font-weight:600;
   }
-  a{color:var(--gold-deep);text-decoration-color:rgba(156,122,31,.4);text-underline-offset:2px;}
+  a{color:var(--gold-deep);text-decoration-color:rgba(242,184,0,.45);text-underline-offset:2px;}
   a:hover{text-decoration-color:var(--gold-deep);}
   .wrap{max-width:720px;margin:0 auto;padding:0 22px;}
 
@@ -98,7 +101,7 @@
     text-decoration:none;
     cursor:pointer;
     background:none;border:none;
-    font-family:'Inter',sans-serif;
+    font-family:'Manrope',sans-serif;
     padding:0;
   }
   .hero-wx .hero-wx-kicker{
@@ -120,8 +123,8 @@
 
   /* QUICK INFO BAR */
   .quickbar{
-    background:var(--charcoal);
-    color:#f2ead6;
+    background:var(--dark);
+    color:#f1f1f1;
   }
   .quickbar .wrap{
     display:flex;flex-wrap:wrap;gap:0;
@@ -135,7 +138,7 @@
   }
   .qitem:last-child{border-right:none;}
   .qitem.wifi-item{
-    background:rgba(201,154,46,.16);
+    background:rgba(242,184,0,.16);
     position:relative;
   }
   .qitem.wifi-item::before{
@@ -163,7 +166,7 @@
     position:fixed;
     left:50%;bottom:28px;
     transform:translateX(-50%) translateY(20px);
-    background:var(--charcoal);
+    background:var(--dark);
     color:#fff;
     padding:10px 18px;
     border-radius:20px;
@@ -198,7 +201,7 @@
   .tab-btn{
     flex:1 1 auto;
     background:none;border:none;
-    font-family:'Fraunces',serif;
+    font-family:'Manrope',sans-serif;
     font-weight:600;
     font-size:.92rem;
     color:var(--charcoal-soft);
@@ -237,7 +240,7 @@
   .callout strong{color:var(--gold-deep);}
 
   .subhead{
-    font-family:'Fraunces',serif;
+    font-family:'Manrope',sans-serif;
     color:var(--gold-deep);
     font-size:1.08rem;
     margin:22px 0 6px 0;
@@ -260,7 +263,7 @@
   }
   .quicklink-card{
     display:block;
-    background:#fff;
+    background:var(--card);
     border:1px solid var(--line);
     border-radius:4px;
     padding:14px 14px;
@@ -268,7 +271,7 @@
     cursor:pointer;
   }
   .quicklink-card .ql-title{
-    font-family:'Fraunces',serif;
+    font-family:'Manrope',sans-serif;
     font-weight:600;
     color:var(--charcoal);
     font-size:.98rem;
@@ -281,21 +284,21 @@
 
   .wx-current{
     display:flex;align-items:center;gap:18px;
-    background:#fff;border:1px solid var(--line);border-radius:4px;
+    background:var(--card);border:1px solid var(--line);border-radius:4px;
     padding:18px 20px;margin-bottom:12px;
   }
   .wx-current .wx-icon{font-size:2.8rem;line-height:1;}
-  .wx-current .wx-temp{font-family:'Fraunces',serif;font-size:2.3rem;color:var(--charcoal);line-height:1;}
+  .wx-current .wx-temp{font-family:'Manrope',sans-serif;font-size:2.3rem;color:var(--charcoal);line-height:1;}
   .wx-current .wx-desc{font-size:.95rem;color:var(--charcoal-soft);margin-top:4px;}
   .wx-current .wx-loc{font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:2px;}
   .wx-forecast{display:flex;gap:8px;}
   .wx-day{
     flex:1;text-align:center;
-    background:#fff;border:1px solid var(--line);border-radius:4px;
+    background:var(--card);border:1px solid var(--line);border-radius:4px;
     padding:12px 4px;
   }
   .wx-day .wx-day-label{
-    font-family:'Fraunces',serif;font-weight:600;
+    font-family:'Manrope',sans-serif;font-weight:600;
     color:var(--gold-deep);font-size:.82rem;margin-bottom:6px;
   }
   .wx-day .wx-icon{font-size:1.7rem;margin-bottom:4px;}
@@ -325,12 +328,12 @@
     border:1px solid var(--line);
     border-radius:4px;
     margin-bottom:10px;
-    background:#fff;
+    background:var(--card);
   }
   details summary{
     cursor:pointer;
     padding:13px 16px;
-    font-family:'Fraunces',serif;
+    font-family:'Manrope',sans-serif;
     font-weight:600;
     color:var(--charcoal);
     list-style:none;
@@ -339,7 +342,7 @@
     align-items:center;
   }
   details summary .s-sub{
-    font-family:'Inter',sans-serif;
+    font-family:'Manrope',sans-serif;
     font-weight:400;
     color:var(--charcoal-soft);
     font-size:.82rem;
@@ -350,7 +353,7 @@
     content:"+";
     color:var(--gold-deep);
     font-size:1.3rem;
-    font-family:'Inter',sans-serif;
+    font-family:'Manrope',sans-serif;
     line-height:1;
     flex:0 0 auto;
     margin-left:10px;
@@ -365,7 +368,7 @@
     display:flex;gap:10px;align-items:flex-start;
     margin-bottom:.6em;
     padding:10px 12px;
-    background:#fff;
+    background:var(--card);
     border:1px solid var(--line);
     border-radius:4px;
   }
@@ -379,13 +382,13 @@
   }
 
   footer{
-    background:var(--charcoal);
-    color:#e9e3d3;
+    background:var(--dark);
+    color:#d8d9dc;
     padding:34px 0 40px;
     text-align:center;
   }
-  footer p{margin:0 0 .4em 0;font-family:'Fraunces',serif;font-size:1.05rem;}
-  footer .small{font-size:.85rem;opacity:.75;font-family:'Inter',sans-serif;}
+  footer p{margin:0 0 .4em 0;font-family:'Manrope',sans-serif;font-size:1.05rem;}
+  footer .small{font-size:.85rem;opacity:.75;font-family:'Manrope',sans-serif;}
 
   @media (min-width:640px){
     .hero-text h1{font-size:2.2rem;}
