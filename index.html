@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#141516">
+<meta name="theme-color" content="#111111">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -29,17 +29,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --charcoal:#f1f1f1;
-    --charcoal-soft:#b4b6ba;
-    --gold:#f2b800;
-    --gold-deep:#f2b800;
-    --cream:#1f2022;
-    --cream-2:#2a2b2e;
+    --charcoal:#111111;
+    --charcoal-soft:#4a4a4a;
+    --gold:#c8102e;
+    --gold-deep:#c8102e;
+    --cream:#f8f8f6;
+    --cream-2:#efefec;
     --green:#445e45;
-    --line:#3a3b3f;
-    --dark:#141516;
-    --card:#2a2b2e;
-    color-scheme:dark;
+    --line:#dcdcd8;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -56,7 +53,7 @@
     margin:0 0 .4em 0;
     font-weight:600;
   }
-  a{color:var(--gold-deep);text-decoration-color:rgba(242,184,0,.45);text-underline-offset:2px;}
+  a{color:var(--gold-deep);text-decoration-color:rgba(200,16,46,.4);text-underline-offset:2px;}
   a:hover{text-decoration-color:var(--gold-deep);}
   .wrap{max-width:720px;margin:0 auto;padding:0 22px;}
 
@@ -73,7 +70,7 @@
     color:#fff;
   }
   .hero-text .kicker{
-    color:var(--gold);
+    color:#ff6b6b;
     font-size:.8rem;
     letter-spacing:.03em;
     margin-bottom:2px;
@@ -93,7 +90,7 @@
     align-items:flex-end;
     gap:14px;
   }
-  .hero-text .addr{font-size:.9rem;color:#e9e3d3;text-shadow: 0 1px 3px rgba(0,0,0,.7);min-width:0;}
+  .hero-text .addr{font-size:.9rem;color:#ececec;text-shadow: 0 1px 3px rgba(0,0,0,.7);min-width:0;}
   .hero-wx{
     flex:0 0 auto;
     text-align:right;
@@ -105,7 +102,7 @@
     padding:0;
   }
   .hero-wx .hero-wx-kicker{
-    color:var(--gold);
+    color:#ff6b6b;
     font-size:.68rem;
     letter-spacing:.03em;
     text-transform:uppercase;
@@ -123,8 +120,8 @@
 
   /* QUICK INFO BAR */
   .quickbar{
-    background:var(--dark);
-    color:#f1f1f1;
+    background:var(--charcoal);
+    color:#f2f2f2;
   }
   .quickbar .wrap{
     display:flex;flex-wrap:wrap;gap:0;
@@ -138,7 +135,6 @@
   }
   .qitem:last-child{border-right:none;}
   .qitem.wifi-item{
-    background:rgba(242,184,0,.16);
     position:relative;
   }
   .qitem.wifi-item::before{
@@ -149,7 +145,7 @@
   .qitem .label{
     font-size:.7rem;
     letter-spacing:.06em;
-    color:var(--gold);
+    color:#ff6b6b;
     text-transform:uppercase;
     margin-bottom:3px;
     display:flex;align-items:center;gap:5px;
@@ -166,7 +162,7 @@
     position:fixed;
     left:50%;bottom:28px;
     transform:translateX(-50%) translateY(20px);
-    background:var(--dark);
+    background:var(--charcoal);
     color:#fff;
     padding:10px 18px;
     border-radius:20px;
@@ -263,7 +259,7 @@
   }
   .quicklink-card{
     display:block;
-    background:var(--card);
+    background:#fff;
     border:1px solid var(--line);
     border-radius:4px;
     padding:14px 14px;
@@ -284,7 +280,7 @@
 
   .wx-current{
     display:flex;align-items:center;gap:18px;
-    background:var(--card);border:1px solid var(--line);border-radius:4px;
+    background:#fff;border:1px solid var(--line);border-radius:4px;
     padding:18px 20px;margin-bottom:12px;
   }
   .wx-current .wx-icon{font-size:2.8rem;line-height:1;}
@@ -294,7 +290,7 @@
   .wx-forecast{display:flex;gap:8px;}
   .wx-day{
     flex:1;text-align:center;
-    background:var(--card);border:1px solid var(--line);border-radius:4px;
+    background:#fff;border:1px solid var(--line);border-radius:4px;
     padding:12px 4px;
   }
   .wx-day .wx-day-label{
@@ -328,7 +324,7 @@
     border:1px solid var(--line);
     border-radius:4px;
     margin-bottom:10px;
-    background:var(--card);
+    background:#fff;
   }
   details summary{
     cursor:pointer;
@@ -368,7 +364,7 @@
     display:flex;gap:10px;align-items:flex-start;
     margin-bottom:.6em;
     padding:10px 12px;
-    background:var(--card);
+    background:#fff;
     border:1px solid var(--line);
     border-radius:4px;
   }
@@ -382,8 +378,8 @@
   }
 
   footer{
-    background:var(--dark);
-    color:#d8d9dc;
+    background:var(--charcoal);
+    color:#ececec;
     padding:34px 0 40px;
     text-align:center;
   }
