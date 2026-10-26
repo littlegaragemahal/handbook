@@ -502,7 +502,7 @@
         </a>
         <a class="quicklink-card" data-goto="checkout">
           <div class="ql-title">Checkout</div>
-          <div class="ql-sub">11 AM — quick checklist</div>
+          <div class="ql-sub" id="qlCheckoutSub">11 AM — quick checklist</div>
         </a>
       </div>
       <figure class="photo"><img src="https://a0.muscache.com/im/pictures/46134b2a-041b-47a6-816c-e18a0d407360.jpg?im_w=960" alt="Kitchen and living area inside Little Garage Mahal" loading="lazy" onerror="this.parentNode.style.display='none'"><figcaption>Welcome to the Little Garage Mahal.</figcaption></figure>
@@ -711,13 +711,23 @@
   <div class="page" id="page-checkout">
     <section>
       <h2>Before You Go</h2>
-      <ul class="checklist">
+      <div data-checkout="old">
+        <ul class="checklist">
         <li><span>Strip the bed — dirty sheets and towels go in the laundry baskets in the closet.</span></li>
         <li><span>Run the dishwasher if there are any dirty dishes.</span></li>
         <li><span>Set the thermostat to 72 if the AC has been running, or 68 if the heat has been on.</span></li>
         <li><span>Double check for belongings, and lock the door behind you.</span></li>
         <li><span>Text <a href="tel:+16159694148">615.969.4148</a> or message us through the <a href="https://www.airbnb.com/" target="_blank" rel="noopener">Airbnb app</a> once you've checked out.</span></li>
       </ul>
+      </div>
+      <div data-checkout="new" hidden>
+        <ul class="checklist">
+          <li><span id="thermoLine">Thermostat: under 50° outside, set heat to 68. Over 75°, set AC to 72. In between, set heat to 65 or AC to 75.</span></li>
+          <li><span>Double check for belongings, and lock the door behind you.</span></li>
+          <li><span>Text <a href="tel:+16159694148">615.969.4148</a> or message us through the <a href="https://www.airbnb.com/" target="_blank" rel="noopener">Airbnb app</a> once you've checked out.</span></li>
+        </ul>
+      </div>
+    
     </section>
   </div>
 
@@ -762,6 +772,19 @@
     }
     el.setAttribute('href', url);
   });
+
+  // ---- Checkout instructions switch: new version goes live on this date (Central time) ----
+  var CHECKOUT_SWITCH_DATE = '2026-11-20'; // YYYY-MM-DD, America/Chicago
+  try {
+    var todayCT = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago' }).format(new Date());
+    if (todayCT >= CHECKOUT_SWITCH_DATE) {
+      var oldCo = document.querySelector('[data-checkout="old"]');
+      var newCo = document.querySelector('[data-checkout="new"]');
+      if (oldCo && newCo) { oldCo.hidden = true; newCo.hidden = false; }
+      var qlSub = document.getElementById('qlCheckoutSub');
+      if (qlSub) qlSub.textContent = '11 AM \u2014 quick checklist';
+    }
+  } catch (e) { /* if anything fails, the current instructions stay as they are */ }
 
   // ---- Hero weather link: jump to Home tab, then scroll to the Weather section ----
   var heroWxLink = document.getElementById('heroWxLink');
@@ -842,10 +865,21 @@
 
   function loadWeather(){
     document.getElementById('weather-content').innerHTML = '<div class="wx-loading">Loading current conditions…</div>';
+    // Checkout thermostat line follows the outside temperature (falls back to the full rule if weather is unavailable)
+    function setThermostat(t){
+      var el = document.getElementById('thermoLine');
+      if (!el || typeof t !== 'number') return;
+      var r = Math.round(t), msg;
+      if (r < 50) msg = 'Thermostat: set heat to 68 (' + r + '\u00B0 outside).';
+      else if (r > 75) msg = 'Thermostat: set AC to 72 (' + r + '\u00B0 outside).';
+      else msg = 'Thermostat: set heat to 65 or AC to 75 (' + r + '\u00B0 outside).';
+      el.textContent = msg;
+    }
     fetch(url)
       .then(function(res){ if(!res.ok) throw new Error("bad response: " + res.status); return res.json(); })
       .then(function(data){
         var cur = data.current, daily = data.daily;
+        setThermostat(cur.temperature_2m);
         var curIcon = wxIcon(cur.weather_code), curLabel = wxLabel(cur.weather_code);
         var html = '<div class="wx-current">' +
           '<div class="wx-icon">' + curIcon + '</div>' +
